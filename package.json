@@ -1,0 +1,14 @@
+{
+  "name": "fp",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "scripts": {
+    "dev": "bun index.ts"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
