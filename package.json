@@ -1,9 +1,16 @@
 {
-  "$schema": "https://json.schemastore.org/package.json",
-  "license": "MIT",
   "name": "@leonardonicola/fp",
+  "description": "A utility library for Functional Programming style",
+  "version": "0.0.1",
+  "license": "MIT",
   "private": true,
   "main": "dist/index.js",
+  "keywords": [
+    "utilities",
+    "fp",
+    "functional programming",
+    "typescript"
+  ],
   "types": "dist/index.d.ts",
   "module": "dist/index.mjs",
   "type": "module",
@@ -37,5 +44,6 @@
     "tsup": "^8.3.5",
     "typescript": "^5.6.3"
   },
-  "packageManager": "pnpm@9.12.2"
+  "packageManager": "pnpm@9.12.2",
+  "$schema": "https://json.schemastore.org/package.json"
 }

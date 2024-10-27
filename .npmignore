@@ -1,0 +1,8 @@
+src
+*.config.ts
+*.config.js
+*-lock.yaml
+tsconfig.json
+.gitignore
+.editorconfig
+node_modules
