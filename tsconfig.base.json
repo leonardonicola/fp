@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "compilerOptions": {
+    "lib": ["ESNext"],
+    "target": "es2022", // js language version
+    "module": "CommonJS", // module code is generated to
+    "outDir": "./dist",
+    "rootDir": ".",
+    "allowJs": true,
+    "declaration": true, // emit d.ts files for .js autocomplete
+    "isolatedModules": true, // ts warns when code is incompatible 
+    "esModuleInterop": true, // emit additional js to ease support for cjs modules
+    "noEmit": true, // use ts as linter
+    "strict": true, // strictness
+    "skipLibCheck": true, // skip type checking all d.ts files
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "noUnusedParameters": true,
+    "types": ["node"],
+    // absolute pathing
+    "paths": {
+      "@fp/array": ["./src/lib/array/index.ts"],
+      "@fp/operators": ["./src/lib/operators/index.ts"],
+      "@leonardonicola/fp": ["./src/lib/index.ts"],
+    },
+  },
+}
