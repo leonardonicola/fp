@@ -13,6 +13,7 @@ export const tsup: Options = {
   minify: env === "production",
   bundle: env === "production",
   skipNodeModulesBundle: true,
+  tsconfig: "tsconfig.emit.json",
   entry: ["src/index.ts"],
-  external: ["src/internal/**/*"], // don't bundle internal folder
+  external: ["src/internal/**/*", "tests/**/*"], // don't bundle internal folder
 };
