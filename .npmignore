@@ -1,9 +1,19 @@
-src
+# Wildcards
 *.config.ts
+*.changeset
 *.config.js
 *-lock.yaml
-tsconfig.json
-.gitignore
-.editorconfig
+tsconfig.*.json
+
+# Sources
 node_modules
-README.md
+tests
+src
+.gitignore
+tsconfig.json
+
+# Test files
+**/*.spec.js
+**/*.test.js
+**/*.test.d.ts
+**/*.spec.d.ts
