@@ -1,7 +1,7 @@
 {
   "name": "@leonardonicola/fp",
   "description": "A utility library for Functional Programming style",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "private": false,
   "main": "dist/index.js",
