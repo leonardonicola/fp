@@ -1,15 +1,16 @@
-# fp
+# fp 
 
-To install dependencies:
+A minimalist and lightweight functional programming utilities library for JavaScript and TypeScript. 
 
-```bash
-bun install
-```
-
-To run:
+## Installation
 
 ```bash
-bun run index.ts
+pnpm install @leonardonicola/fp
 ```
 
-This project was created using `bun init` in bun v1.1.32. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+## Getting Started
+Import the utility functions and start transforming values seamlessly:
+
+```typescript
+import { pipe, memoize, reduce } from '@leonardonicola/fp';
+```
