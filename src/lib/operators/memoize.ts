@@ -1,4 +1,4 @@
-import type { ExtractArgsType } from "@fp/interfaces";
+import { Args } from "@/lib";
 
 /**
  * Caches a function result based on its **arguments**.
@@ -20,7 +20,7 @@ import type { ExtractArgsType } from "@fp/interfaces";
 function memoize<T extends (...args: any[]) => any>(fn: T) {
   const cache = new Map<string, ReturnType<T>>();
 
-  return function (...args: ExtractArgsType<T>): ReturnType<T> {
+  return function (...args: Args<T>): ReturnType<T> {
     const stringifiedArgs = JSON.stringify(args);
     const cachedRes = cache.get(stringifiedArgs);
     if (cachedRes) {
