@@ -1,9 +1,9 @@
 interface PipeChain<M> {
   pipe: Pipe<M>;
-  run: () => M;
+  run: () => M extends Promise<infer U> ? Promise<U> : M;
 }
 
-type PipeCb<V, S> = (arg: V) => S;
+type PipeCb<V, S> = (arg: V) => S | Promise<S>;
 
 type Pipe<V> = <S>(fn: PipeCb<V, S>) => PipeChain<S>;
 
@@ -21,11 +21,11 @@ type Pipe<V> = <S>(fn: PipeCb<V, S>) => PipeChain<S>;
  *   .run(); // result is 16
  */
 const pipe = <T>(initialValue: T): PipeChain<T> => {
-  let value: any = initialValue;
+  let value: any = Promise.resolve(initialValue);
 
   const chain: PipeChain<T> = {
     pipe<S>(fn: PipeCb<T, S>) {
-      value = fn(value);
+      value = value.then(fn);
       return chain as unknown as PipeChain<S>;
     },
     run() {
