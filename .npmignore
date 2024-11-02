@@ -13,6 +13,7 @@ src
 tsconfig.json
 
 # Test files
+coverage/
 **/*.spec.js
 **/*.test.js
 **/*.test.d.ts
