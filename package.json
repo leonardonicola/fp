@@ -31,10 +31,11 @@
   "scripts": {
     "prepublishOnly": "pnpm run build",
     "prebuild": "rimraf dist",
-    "build": "pnpm run lint && tsup",
+    "build": "pnpm run lint && pnpm run test && tsup",
     "lint": "tsc --noEmit",
     "dev": "tsc --watch",
-    "test": "vitest"
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage"
   },
   "repository": {
     "type": "git",
@@ -42,6 +43,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.8.1",
+    "@vitest/coverage-v8": "2.1.4",
     "rimraf": "^6.0.1",
     "tsup": "^8.3.5",
     "typescript": "^5.6.3",
