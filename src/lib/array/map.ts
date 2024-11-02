@@ -12,12 +12,14 @@
  * // Mapping to strings
  * map([1, 2, 3], (num, idx) => `Number ${num} at index ${idx}`); // returns ["Number 1 at index 0", "Number 2 at index 1", "Number 3 at index 2"]
  */
-function map<T>(arr: T[], fn: (num: T, index: number, arr: T[]) => T): T[] {
-  let newArr: T[] = [];
+function map<T, U>(arr: T[], fn?: (val: T, index: number, arr: T[]) => U): U[] {
+  if (!arr) throw TypeError("No array provided");
+  if (!fn) return arr as unknown as U[];
+  let newArr: U[] = [];
   for (let i = 0; i < arr.length; i++) {
-    newArr.push(fn(arr[i] as T, i, arr));
+    newArr.push(fn(arr[i], i, arr));
   }
-  return newArr;
+  return newArr as U[];
 }
 
 export { map };
