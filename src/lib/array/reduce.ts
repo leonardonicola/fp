@@ -1,3 +1,5 @@
+import { start } from "repl";
+
 /**
  *
  * @template T - Type of elements in the array.
@@ -35,16 +37,22 @@ function reduce<T, U>(
   fn: (prevVal: T | U, currVal: T, idx: number, arr: T[]) => T | U,
   initialVal?: T | U
 ): T | U {
-  if (arr.length === 0 && !initialVal) {
-    throw new TypeError("Empty array with no initial val");
+  if (!arr) {
+    throw TypeError("No array provided");
+  }
+  if (initialVal === undefined && arr.length === 0) {
+    throw TypeError("Empty array without any initial val");
   }
 
-  let currArr = (initialVal ?? arr[0]) as T | U;
+  let prev: T | U = initialVal !== undefined ? initialVal : arr[0];
 
-  for (let i = 1; i < arr.length; i++) {
-    currArr = fn(currArr, arr[i] as T, i, arr);
+  const startIdx = initialVal !== undefined ? 0 : 1;
+
+  for (let i = startIdx; i < arr.length; i++) {
+    prev = fn(prev, arr[i], i, arr);
   }
-  return currArr;
+
+  return prev;
 }
 
 export { reduce };
